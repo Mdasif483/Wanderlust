@@ -62,12 +62,12 @@ function ListingCard(props) {
 
 
   return (
-    <div class="overflow-hidden bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 relative transition-shadow duration-300 rounded">
+    <div className="overflow-hidden bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 relative transition-shadow duration-300 rounded">
       {hidden && (
-        <div class="absolute top-0 right-0 bg-white/75 px-3 text-xl py-2 rounded-bl rounded-tr">
-          <i class="mx-2 fa-solid fa-pen-to-square cursor-pointer" onClick={handleOpen}></i>
+        <div className="absolute top-0 right-0 bg-white/75 px-3 text-xl py-2 rounded-bl rounded-tr">
+          <i className="mx-2 fa-solid fa-pen-to-square cursor-pointer" onClick={handleOpen}></i>
           <i
-            class="mx-2 text-red-600 fa-solid fa-eraser cursor-pointer"
+            className="mx-2 text-red-600 fa-solid fa-eraser cursor-pointer"
             onClick={() => {
               deletePostFun(id);
             }}
@@ -75,37 +75,37 @@ function ListingCard(props) {
         </div>
       )}
       <Link to={`/listdetails/${id}`} aria-label="Article">
-        <img src={image} class="object-cover w-full h-64 rounded" alt="" />
+        <img src={image} className="object-cover w-full h-64 rounded" alt="" />
       </Link>
       <UpdateListModal open={open} handleClose={handleClose} title={title} description={description} price={price} location={location} country={country} id={id} />
-      <div class="py-5 px-5">
-        <p class="mb-2 text-xs font-semibold text-gray-500 uppercase">
+      <div className="py-5 px-5">
+        <p className="mb-2 text-xs font-semibold text-gray-500 uppercase">
           {new Date(createdAt).toLocaleString()}
         </p>
         <a
           href="/"
           aria-label="Article"
-          class="inline-block mb-3 text-gray-950 dark:text-gray-50 transition-colors duration-200 hover:text-deep-purple-accent-700"
+          className="inline-block mb-3 text-gray-950 dark:text-gray-50 transition-colors duration-200 hover:text-deep-purple-accent-700"
         >
-          <p class="text-2xl font-bold leading-5">{title}</p>
+          <p className="text-2xl font-bold leading-5">{title}</p>
         </a>
-        <p class="mb-1 text-gray-900 dark:text-gray-300">{description}</p>
-        <p class="mb-1 font-[700] text-gray-900 dark:text-gray-100">
-          Price: <span class="font-[600]">{price}&nbsp;₹</span>
+        <p className="mb-1 text-gray-900 dark:text-gray-300">{description}</p>
+        <p className="mb-1 font-[700] text-gray-900 dark:text-gray-100">
+          Price: <span className="font-[600]">{price}&nbsp;₹</span>
         </p>
-        <div class="flex flex-col mb-4 w-full justify-center pr-10">
-          <p class="mb-1 font-[700] text-gray-900 dark:text-gray-100">
-            Location: <span class="font-[600]">{location}</span>
+        <div className="flex flex-col mb-4 w-full justify-center pr-10">
+          <p className="mb-1 font-[700] text-gray-900 dark:text-gray-100">
+            Location: <span className="font-[600]">{location}</span>
           </p>
-          <p class="font-[700] text-gray-900 dark:text-gray-100">
-            Country: <span class="font-[600]">{country}</span>
+          <p className="font-[700] text-gray-900 dark:text-gray-100">
+            Country: <span className="font-[600]">{country}</span>
           </p>
         </div>
-        <div class="flex space-x-4">
+        <div className="flex space-x-4">
           <div
-            class="flex items-start text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700 group"
+            className="flex items-start text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700 group"
           >
-            <div class="mr-2 cursor-pointer" onClick={likeFun}>
+            <div className="mr-2 cursor-pointer" onClick={likeFun}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -115,7 +115,7 @@ function ListingCard(props) {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                class="w-5 h-5 text-gray-600 transition-colors duration-200 group-hover:text-deep-purple-accent-700"
+                className="w-5 h-5 text-gray-600 transition-colors duration-200 group-hover:text-deep-purple-accent-700"
               >
                 <polyline
                   points="6 23 1 23 1 12 6 12"
@@ -130,12 +130,12 @@ function ListingCard(props) {
                 ></path>
               </svg>
             </div>
-            <p class="font-semibold">{totalLike}</p>
+            <p className="font-semibold">{totalLike}</p>
           </div>
           <div
-            class="flex items-start text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700 group"
+            className="flex items-start text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700 group"
           >
-            <div class="mr-2">
+            <div className="mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -145,7 +145,7 @@ function ListingCard(props) {
                 stroke-linejoin="round"
                 stroke-width="2"
                 stroke="currentColor"
-                class="w-5 h-5 text-gray-600 transition-colors duration-200 group-hover:text-deep-purple-accent-700"
+                className="w-5 h-5 text-gray-600 transition-colors duration-200 group-hover:text-deep-purple-accent-700"
               >
                 <polyline
                   points="23 5 23 18 19 18 19 22 13 18 12 18"
@@ -160,7 +160,7 @@ function ListingCard(props) {
                 ></polygon>
               </svg>
             </div>
-            <p class="font-semibold">{totalComment}</p>
+            <p className="font-semibold">{totalComment}</p>
           </div>
         </div>
       </div>
