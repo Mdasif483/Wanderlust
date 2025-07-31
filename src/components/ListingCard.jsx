@@ -29,7 +29,7 @@ function ListingCard(props) {
  },[isLike])
 
 
-console.log(isLike)
+// console.log(isLike)
   const handleOpen = () => {
     setOpen(true);
   };
