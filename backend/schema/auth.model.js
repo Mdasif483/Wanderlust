@@ -32,7 +32,7 @@ const authSchema = new mongoose.Schema(
     },
     avatar:{
         type:String,
-        default:"https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
+        default:"https://images.unsplash.com/photo-1633332755192-727a05c4013d"
     },
     address:{
         type:String,
