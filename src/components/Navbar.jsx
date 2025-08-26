@@ -147,7 +147,7 @@ function Navbar() {
                 <img
                   className="w-[60px] cursor-pointer border-2 border-white rounded-full"
                   src={user?.avatar || "https://images.unsplash.com/photo-1633332755192-727a05c4013d"}
-                  alt=""
+                  alt="user avatar"
                   onClick={() => {
                     setOpen(true);
                   }}
