@@ -146,7 +146,7 @@ function Navbar() {
               {localStorage.getItem("token") ? (
                 <img
                   className="w-[60px] cursor-pointer border-2 border-white rounded-full"
-                  src={user?.avatar || "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"}
+                  src={user?.avatar || "https://images.unsplash.com/photo-1633332755192-727a05c4013d"}
                   alt=""
                   onClick={() => {
                     setOpen(true);
