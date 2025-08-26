@@ -2,28 +2,20 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import Elements from "./Elements.jsx";
-import { ToastContainer } from "react-toastify";
 import AuthState from "./contextapi/authcontext/AuthState.jsx";
 import ListState from "./contextapi/listcontext/ListState.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthState>
       <ListState>
         <Elements />
+        <ToastContainer />
+      
       </ListState>
     </AuthState>
-    <ToastContainer
-      position="top-center"
-      autoClose={5000}
-      hideProgressBar
-      newestOnTop={false}
-      closeOnClick={false}
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover={false}
-      theme="colored"
-    />
+   
   </StrictMode>
 );

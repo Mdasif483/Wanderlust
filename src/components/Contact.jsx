@@ -1,12 +1,80 @@
 import React from "react";
+import {toast} from "react-toastify"
+import { useState } from "react";
+import { baseUrls } from "../baseUrls";
+
 
 function Contact() {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const myObj = { 
+      name, 
+      email, 
+      subject, 
+      message: message
+     };
+    console.log(myObj);
+    try {
+      
+      const res = await fetch(`${baseUrls}/api/v3.2/contact/sendmessage`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(myObj),
+      });
+      const mess = await res.json();
+      console.log(mess);
+      if (mess.success) {
+        toast.success(mess.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      } else {
+        toast.error(mess.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    } catch (error) {
+      toast.error("Internal server error!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+    }
+  };
+
   return (
     <div className="relative flex items-top justify-center min-h-[500px] bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 sm:items-center sm:pt-0">
       <div className="w-5/6 py-16 sm:px-6 lg:px-8">
         <div className="mt-8 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="p-6 mr-2 bg-gray-300 dark:bg-gray-800 text-gray-900 dark:text-gray-100 sm:rounded-lg">
+            <div className="p-6 mr-2 bg-gray-300 dark:bg-gray-900 text-gray-900 dark:text-gray-100 sm:rounded-lg">
               <h1 className="text-3xl sm:text-4xl text-orange-600 font-extrabold tracking-tight">
                 Get in touch:
               </h1>
@@ -37,7 +105,7 @@ function Contact() {
                   />
                 </svg>
                 <div className="ml-4 text-md tracking-wide text-gray-900 dark:text-gray-100 font-semibold w-40">
-                  barabanki uttar pradesh india
+                  Acme Inc, Street, State, Postal Code
                 </div>
               </div>
               <div className="flex items-center mt-4 text-gray-600">
@@ -58,7 +126,7 @@ function Contact() {
                   />
                 </svg>
                 <div className="ml-4 text-md tracking-wide font-semibold text-gray-900 dark:text-gray-100 w-40">
-                  +91 8081768481
+                  +91 7897877992
                 </div>
               </div>
               <div className="flex items-center mt-2 text-gray-600">
@@ -79,11 +147,11 @@ function Contact() {
                   />
                 </svg>
                 <div className="ml-4 text-md tracking-wide text-gray-900 dark:text-gray-100 font-semibold w-40">
-                  hiasif7786@gmail.com
+                  mohdraziuddin555@gmail.com
                 </div>
               </div>
             </div>
-            <form className="p-6 flex flex-col justify-center">
+            <form className=" p-6 flex flex-col justify-center" onSubmit={submitHandler}>
               <div className="flex flex-col">
                 <label htmlFor="name" className="hidden">
                   Full Name
@@ -93,6 +161,11 @@ function Contact() {
                   name="name"
                   id="name"
                   placeholder="Full Name"
+                  value={name}
+                  onChange={(e)=>{
+                    setName(e.target.value);
+                  }}
+                 
                   className="w-full mt-2 py-4 px-4 rounded-lg bg-gray-300 dark:bg-gray-800 text-gray-900 dark:text-gray-100 font-semibold focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -104,7 +177,12 @@ function Contact() {
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Email"
+                   placeholder="Email"
+                   value={email}
+                   onChange={(e) => {
+                   setEmail(e.target.value);
+            }}
+                  
                   className="w-full mt-2 py-4 px-4 rounded-lg bg-gray-300 dark:bg-gray-800 text-gray-800 dark:text-gray-100 font-semibold focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -116,7 +194,12 @@ function Contact() {
                   type="text"
                   name="subject"
                   id="subject"
-                  placeholder="Your Subject"
+                   placeholder="Your Subject"
+                   value={subject}
+                   onChange={(e) => {
+                    setSubject(e.target.value);
+                   }}
+                 
                   className="w-full mt-2 py-4 px-4 rounded-lg bg-gray-300 dark:bg-gray-800 text-gray-800 dark:text-gray-100 font-semibold focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -128,7 +211,12 @@ function Contact() {
                   name="message"
                   id="message"
                   rows={4}
-                  placeholder="Your Message"
+                   placeholder="Your Message"
+                    value={message}
+                    onChange={(e) => {
+                     setMessage(e.target.value);
+                    }}
+                  
                   className="w-full mt-2 py-4 px-4 rounded-lg bg-gray-300 dark:bg-gray-800 text-gray-800 dark:text-gray-100 font-semibold focus:border-orange-500 focus:outline-none"
                 />
               </div>

@@ -3,8 +3,20 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { successEmitter } from "../ToastEmitter";
 import { useAuthContext } from "../contextapi/authcontext/authContext";
 import SideBar from "./SideBar";
+import { useTheme } from "styled-components";
 
 function Navbar() {
+
+  // const { theme, lightMode, darkMode } = useTheme();
+  // const changeMode = () => {
+  //   if (theme === "light") {
+  //     darkMode();
+  //   }
+  //   else{
+  //     lightMode();
+  //   }
+  // };
+
   const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
@@ -121,10 +133,12 @@ function Navbar() {
             </li>
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li className="text-white text-xl cursor-pointer">
-              {/* <i className="fa-solid fa-sun"></i> */}
-              <i className="fa-solid fa-moon"></i>
+            {/* <div className="toggle" onClick={changeMode}>
+              <li className="text-white text-xl cursor-pointer">
+            {theme==='light' ?   <i className="fa-solid fa-sun text-3xl mx-2 cursor-pointer"></i>
+            :<i className="fa-solid fa-moon text-3xl mx-2 cursor-pointer"></i>}
             </li>
+            </div> */}
             <li className="text-white text-xl cursor-pointer">
               <i className="fa-solid fa-bell"></i>
             </li>
@@ -132,7 +146,7 @@ function Navbar() {
               {localStorage.getItem("token") ? (
                 <img
                   className="w-[60px] cursor-pointer border-2 border-white rounded-full"
-                  src={user.avatar}
+                  src={user?.avatar || "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"}
                   alt=""
                   onClick={() => {
                     setOpen(true);

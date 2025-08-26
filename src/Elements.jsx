@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import { useAuthContext } from "./contextapi/authcontext/authContext.js";
 import YourPost from "./components/YourPost.jsx";
+import Profile from "./components/profile.jsx";
 function Elements() {
   const { isLogin, getUserFun } = useAuthContext();
 
@@ -39,6 +40,7 @@ function Elements() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/listdetails/:listId" element={<ListDetails />} />
       </Route>
     )

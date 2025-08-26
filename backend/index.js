@@ -2,7 +2,7 @@ const connectToDB = require("./database");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = 8000;
+// const PORT = 8000;
 const cloudinary = require('./cloudinary/cloudConfig');
 const { baseUrls } = require("../src/baseUrls");
 // const listingModel = require("./schema/listing.model");
@@ -24,11 +24,12 @@ app.get("/", (req, res) => {
 //   const response = await listingModel.insertMany(data.data)
 //   res.send("add list")
 // })
-
+const PORT = process.env.PORT
 app.use('/api/v3.2/auth', require('./router/auth.routes'))
 app.use('/api/v3.2/post', require('./router/listing.routes'))
 app.use('/api/v3.2/rating', require('./router/rating.routes'))
 app.use('/api/v3.2/comment', require('./router/comment.routes'))
+app.use('/api/v3.2/contact', require('./router/contactus.routes'))
 app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${baseUrls}`);
+  console.log(`Server is running on port ${baseUrls}`);
 });
