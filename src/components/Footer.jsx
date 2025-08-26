@@ -54,7 +54,7 @@ function Footer() {
               title="Our phone"
               className="text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
-              850-123-5021
+              881768481
             </a>
           </div>
           <div className="flex">
@@ -65,7 +65,7 @@ function Footer() {
               title="Our email"
               className="text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
-              info@lorem.mail
+              hiasif7786@gmail.com
             </a>
           </div>
           <div className="flex">
@@ -76,9 +76,9 @@ function Footer() {
               rel="noopener noreferrer"
               aria-label="Our address"
               title="Our address"
-              className="text-deep-purple-accent-400 hover:text-deep-purple-800"
+              className="text-deep-purple-accent-400 hover:text-deep-purple-800 capitalize"
             >
-              312 Lovely Street, NY
+               barabanki uttar pradesh India
             </a>
           </div>
         </div>

@@ -87,17 +87,17 @@ function ListingCard(props) {
           aria-label="Article"
           className="inline-block mb-3 text-gray-950 dark:text-gray-50 transition-colors duration-200 hover:text-deep-purple-accent-700"
         >
-          <p className="text-2xl font-bold leading-5">{title}</p>
+          <p className="text-2xl font-bold leading-5 capitalize">{title}</p>
         </a>
-        <p className="mb-1 text-gray-900 dark:text-gray-300">{description}</p>
+        <p className="mb-1 text-gray-900 dark:text-gray-300 capitalize">{description}</p>
         <p className="mb-1 font-[700] text-gray-900 dark:text-gray-100">
           Price: <span className="font-[600]">{price}&nbsp;₹</span>
         </p>
         <div className="flex flex-col mb-4 w-full justify-center pr-10">
-          <p className="mb-1 font-[700] text-gray-900 dark:text-gray-100">
+          <p className="mb-1 font-[700] text-gray-900 dark:text-gray-100 capitalize">
             Location: <span className="font-[600]">{location}</span>
           </p>
-          <p className="font-[700] text-gray-900 dark:text-gray-100">
+          <p className="font-[700] text-gray-900 dark:text-gray-100 capitalize">
             Country: <span className="font-[600]">{country}</span>
           </p>
         </div>
